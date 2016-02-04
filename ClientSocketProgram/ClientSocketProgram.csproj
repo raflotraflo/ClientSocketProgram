@@ -59,7 +59,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBitsFromSequenceControler.cs" />
+    <Compile Include="ErrorBitsFromSequenceControler.cs" />
+    <Compile Include="ISequenceControllerCommunicationData.cs" />
+    <Compile Include="ISequenceControllerForVisuControl.cs" />
     <Compile Include="ReceiveData.cs" />
+    <Compile Include="SequenceControllerCommunication.cs" />
+    <Compile Include="SequenceControllerCommunicationDataEventArgs.cs" />
     <Compile Include="TCPDataReceiver .cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

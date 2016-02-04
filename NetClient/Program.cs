@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace NetClient
 {
@@ -27,6 +28,7 @@ namespace NetClient
         static StreamReader _sr;
         static StreamWriter _sw;
         static Socket _socket;
+        static Semaphore sem = new Semaphore(0, 1);
 
         // Sample high score table data
         static Dictionary<string, int> highScoreTable = new Dictionary<string, int>() {
