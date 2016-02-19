@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ClientSocketProgram
 {
-    public class DataMapper : IMapper<byte[], DataModel>
+    public class CommunicationDataFrameMapper : IMapper<byte[], CommunicationDataFrame>
     {
-        public DataModel Map(byte[] data)
+        public CommunicationDataFrame Map(byte[] data)
         {
-            DataModel model = new DataModel();
+            CommunicationDataFrame model = new CommunicationDataFrame();
 
-            model.Insert = data[0].GetBit(0);
-            model.Delete = data[0].GetBit(1);
-            model.NotFound = data[0].GetBit(2);
+            model.LifeBit = data[0].GetBit(0);
 
-            model.LifeBit = data[1].GetBit(0);
+            model.Insert = data[0].GetBit(1);
+            model.Delete = data[0].GetBit(2);
+            //model.NotFound = data[0].GetBit(3);
 
             model.Prefix = GetString(data, 2, 4);
             model.LBHD = GetString(data, 6, 12);
@@ -29,15 +28,21 @@ namespace ClientSocketProgram
             return model;
         }
 
-        public byte[] InverseMap(DataModel model)
+        public byte[] InverseMap(CommunicationDataFrame model)
         {
-            byte[] outStream = new byte[DataModel.NumberOfBytes];
+            byte[] outStream = new byte[CommunicationDataFrame.NumberOfBytes];
 
-            outStream[0] = outStream[0].SetBit(0, model.Insert);
-            outStream[0] = outStream[0].SetBit(1, model.Delete);
-            outStream[0] = outStream[0].SetBit(2, model.NotFound);
+            outStream[0] = outStream[0].SetBit(0, model.LifeBit);
 
-            outStream[1] = outStream[1].SetBit(0, model.LifeBit);
+            outStream[0] = outStream[0].SetBit(1, model.Insert);
+            outStream[0] = outStream[0].SetBit(2, model.Delete);
+
+            outStream[0] = outStream[0].SetBit(3, model.NotFound);
+            outStream[0] = outStream[0].SetBit(4, model.SOAP);
+            outStream[0] = outStream[0].SetBit(5, model.NotInsert);
+            outStream[0] = outStream[0].SetBit(6, model.NotDelete);
+            outStream[0] = outStream[0].SetBit(7, model.UnknownError);
+
 
             GetBytes(model.Prefix, 4, ref outStream, 2);
             GetBytes(model.LBHD, 12, ref outStream, 6);
@@ -63,4 +68,5 @@ namespace ClientSocketProgram
         }
 
     }
+
 }

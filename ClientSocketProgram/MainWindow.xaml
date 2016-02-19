@@ -7,13 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid Background="LightGray">
-        <Label x:Name="label1" Content="Label 1" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="497"/>
+        <Label x:Name="label1" Content="Cennect" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="52"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="88" Margin="10,36,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="497"/>
         <Label x:Name="label2" Content="Label 2" HorizontalAlignment="Left" Height="26" Margin="10,154,0,0" VerticalAlignment="Top" Width="497"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="88" Margin="10,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="497"/>
         <Button x:Name="button1" Content="Send message to Server" Click="button1_Click" HorizontalAlignment="Left" Height="25" Margin="358,285,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="buttonPrzerwij" Content="Przerwij" Click="buttonPrzerwij_Click"  HorizontalAlignment="Left" Height="25" Margin="285,285,0,0" VerticalAlignment="Top" Width="68"/>
+        <Button x:Name="buttonStart" Content="Start" Click="buttonStart_Click"  HorizontalAlignment="Left" Height="25" Margin="212,285,0,0" VerticalAlignment="Top" Width="68"/>
         
-        <Ellipse x:Name="controlEllipse" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="481,0,0,0"/>
+
+        <Ellipse x:Name="controlEllipse" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="481,0,0,0">
+        </Ellipse>
+        <Label x:Name="label3" Content="BIT" HorizontalAlignment="Left" Height="26" Margin="490,5,0,0" VerticalAlignment="Top" Width="27"/>
+        
+        
+        <Ellipse x:Name="controlEllipse1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="440,0,0,0"/>
+
+        <Ellipse x:Name="controlEllipse3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="62,0,0,0"/>
 
     </Grid>
 </Window>

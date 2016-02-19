@@ -11,5 +11,8 @@ namespace ClientSocketProgram
         public bool LBHDNotFound { get; set; }
         public bool ConnectionAlarm { get; set; }
         public bool UnknownError { get; set; }
+        public bool OrderWithSOP { get; set; }
+        public bool OrderNotInserted { get; set; }
+        public bool OrderNotDeleted { get; set; }
     }
 }

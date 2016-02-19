@@ -11,8 +11,12 @@ namespace ClientSocketProgram
         event EventHandler<SequenceControllerCommunicationDataEventArgs> InsertOrder;
         event EventHandler<SequenceControllerCommunicationDataEventArgs> DeleteOrder;
 
-        void LBHDnotFound(string lbhd);
-        void OrderInserted(string lbhd, bool result);
-        void OrderDeleted(string lbhd, bool result);
+        Task LBHDnotFoundAsync(string lbhd);
+        Task OrderWithSOPAsync(string lbhd);
+        Task OrderInsertedAsync(string lbhd);
+        Task OrderNotInsertedAsync(string lbhd);
+        Task OrderDeletedAsync(string lbhd);
+        Task OrderNotDeletedAsync(string lbhd);
+        Task UnknownErrorAsync();
     }
 }

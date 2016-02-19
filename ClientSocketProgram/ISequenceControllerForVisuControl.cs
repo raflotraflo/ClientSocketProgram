@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace ClientSocketProgram
 {
@@ -8,9 +9,15 @@ namespace ClientSocketProgram
         event EventHandler SendDataChanged;
         event EventHandler ReceiveDataChanged;
         event EventHandler ErrorChanged;
+        event EventHandler StartedChanged;
         DataBitsFromSequenceControler SendDataBits { get; }
         DataBitsFromSequenceControler ReceiveDataBits { get; }
         ErrorBitsFromSequenceControler ErrorBits { get; }
+
+        Task<bool> SaveAsync(IPAddress ip, int port);
+        Task<bool> SaveAsync(string ip, int port);
+        Task<bool> StartAsync();
+        void Stop();
 
         IPAddress IP
         {
@@ -21,5 +28,9 @@ namespace ClientSocketProgram
             get;
         }
 
+        bool Started
+        {
+            get;
+        }
     }
 }

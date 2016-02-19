@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -59,11 +60,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CommunicationDataFrame.cs" />
+    <Compile Include="CommunicationDataFrameMapper.cs" />
     <Compile Include="DataBitsFromSequenceControler.cs" />
     <Compile Include="ErrorBitsFromSequenceControler.cs" />
     <Compile Include="ISequenceControllerCommunicationData.cs" />
     <Compile Include="ISequenceControllerForVisuControl.cs" />
     <Compile Include="ReceiveData.cs" />
+    <Compile Include="SendingFailedException.cs" />
     <Compile Include="SequenceControllerCommunication.cs" />
     <Compile Include="SequenceControllerCommunicationDataEventArgs.cs" />
     <Compile Include="TCPDataReceiver .cs" />
@@ -75,8 +79,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataMapper.cs" />
-    <Compile Include="DataModel.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="IMapper.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -103,7 +105,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="NLog.config" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
