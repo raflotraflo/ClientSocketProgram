@@ -37,6 +37,8 @@ namespace ClientSocketProgram
             Broadcast = "";
             PLPID = "";
             Operation = "";
+            
+            //zmiana2
         }
 
         public CommunicationDataFrame GetCopy()
