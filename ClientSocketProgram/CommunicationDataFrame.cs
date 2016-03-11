@@ -30,6 +30,7 @@ namespace ClientSocketProgram
 
         public CommunicationDataFrame()
         {
+            //zmiana 
             Prefix = "";
             LBHD = "";
             Sequence = "";
