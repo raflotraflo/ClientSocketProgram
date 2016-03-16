@@ -264,10 +264,8 @@ namespace ClientSocketProgram
                         _logger.Debug("Send frame from Task ReceiveAsync()");
                         await SendAsync(receiveData, isNewRequest).ConfigureAwait(false);
                     }
-                    catch (SendingFailedException)
-                    {
-                        _logger.Error("Error while send frame from Task ReceiveAsync()");
-                    }
+                    catch(Exception)
+                    { }
 
                 }
                 catch (OperationCanceledException)
@@ -322,7 +320,7 @@ namespace ClientSocketProgram
                     catch (Exception)
                     {
                         _logger.Error("Error while sending frame: length={0}, lifBit={1}, lbhd={2}", data.Length, frame.LifeBit, frame.LBHD);
-                        throw new SendingFailedException("Wysyłanie nie powiodło się.");
+                       // throw new SendingFailedException("Wysyłanie nie powiodło się.");
                     }
 
                     if (IsNewRequest(frame, _lastSendData))
@@ -335,7 +333,7 @@ namespace ClientSocketProgram
                 else
                 {
                     _logger.Error("Without connection while sending frame: lifBit={1}, lbhd={2}", frame.LifeBit, frame.LBHD);
-                    throw new SendingFailedException("Sending error. No connecion.");
+                    //throw new SendingFailedException("Sending error. No connecion.");
                 }
             }
             finally
