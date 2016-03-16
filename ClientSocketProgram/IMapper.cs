@@ -12,4 +12,5 @@ namespace ClientSocketProgram
 
         T InverseMap(h input);
     }
+    //zmiana bezposrednio w repozytorium
 }
