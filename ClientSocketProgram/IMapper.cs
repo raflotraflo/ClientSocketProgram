@@ -16,6 +16,6 @@ namespace ClientSocketProgram
     //zmiana bezposrednio w repozytorium
     //add something from test_branch 
     //zmiana w VS
-    
+    // bal bal 
     //zmiana z GIT to VS
 }
